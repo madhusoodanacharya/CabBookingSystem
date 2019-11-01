@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+#include <random>
+
 class coordinates{
     double latitude;
     double longitude;
@@ -7,4 +13,6 @@ class coordinates{
             longitude = lon;
         }
         double distance(coordinates other);
+        void random_coordinates();
+        void print_coordinates();
 };
