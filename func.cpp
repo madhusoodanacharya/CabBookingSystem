@@ -25,8 +25,8 @@ void coordinates::random_coordinates()
     const double my_longitudes[5] = {-117.5419695, -110.819687, -74.26939, -81.24822669, -80.21450739};
     const std::string my_address[5] = {"Orange Unified School District, CA, USA",
                                         "Pima County, AZ, USA",
-                                        "Keenan Way, South Amboy, NJ 08879, USA"
-                                        "Needlewood Loop, FL 32765, USA"
+                                        "Keenan Way, South Amboy, NJ 08879, USA",
+                                        "Needlewood Loop, FL 32765, USA",
                                         "1475 NW 12th Ave, Miami, FL 33136, USA"};
     srand(time(0));
     int random = rand()%5;
@@ -53,4 +53,49 @@ double coordinates::get_latitude()
 double coordinates::get_longitude()
 {
     return longitude;
+}
+
+void coordinates::put_latitude(double d)
+{
+    latitude = d;
+}
+
+void coordinates::put_longitude(double d)
+{
+    longitude = d;
+}
+
+void coordinates::put_address(std::string s)
+{
+    address = s;
+}
+
+void load_coordinates(coordinates cabs[])
+{
+    std::ifstream f;
+    f.open("coordinates.csv");
+    std::string line;
+    getline(f, line);
+    for(int i = 0; i<COORDINATE_LIMIT; i++){
+        getline(f, line);
+        std::string temp, data[3];
+        int count = 0;
+        for(char c : line){
+            if(c == ','){
+                data[count] = temp;
+                temp = "";
+                count++;
+            }
+            else
+                temp += c;
+            if(count == 2){
+                data[count] = temp;
+            }
+        }
+        cabs[i].put_latitude(std::stod(data[0]));
+        cabs[i].put_longitude(std::stod(data[1]));
+        cabs[i].put_address(data[2]);
+    }
+    f.close();
+
 }

@@ -10,7 +10,11 @@ int main(void)
     coordinates s(0,0,"something");
     s.random_coordinates();
     s.print_coordinates();
-    s.get_address();
+    std::string add = s.get_address();
+
+    coordinates cabs[COORDINATE_LIMIT];
+    load_coordinates(cabs);
+    cabs[0].print_coordinates();
 
     return 0;
 }

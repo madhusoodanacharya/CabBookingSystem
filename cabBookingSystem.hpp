@@ -4,6 +4,8 @@
 #include <cmath>
 #include <random>
 #include <time.h>
+#include <fstream>
+#define COORDINATE_LIMIT 6443
 
 class coordinates{
     double latitude;
@@ -21,4 +23,9 @@ class coordinates{
         std::string get_address();
         double get_latitude();
         double get_longitude();
+        void put_latitude(double);
+        void put_longitude(double);
+        void put_address(std::string);
 };
+
+void load_coordinates(coordinates []);
