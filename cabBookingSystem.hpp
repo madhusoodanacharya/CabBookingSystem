@@ -5,6 +5,7 @@
 #include <random>
 #include <time.h>
 #include <fstream>
+#include <algorithm>
 #define COORDINATE_LIMIT 6443
 
 class coordinates{
@@ -17,7 +18,7 @@ class coordinates{
             longitude = lon;
             address = add;
         }
-        double distance(coordinates other);
+        double distance(coordinates other) const;
         void random_coordinates();
         void print_coordinates();
         std::string get_address();
@@ -29,3 +30,4 @@ class coordinates{
 };
 
 void load_coordinates(coordinates []);
+std::vector<coordinates> closest5Cabs(const coordinates [],const coordinates);

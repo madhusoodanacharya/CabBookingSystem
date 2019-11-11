@@ -1,6 +1,6 @@
 #include "cabBookingSystem.hpp"
 
-double coordinates::distance(coordinates other)
+double coordinates::distance(coordinates other) const
 {
     //lat and longitude diff in radians
     double lat_diff = (other.latitude - latitude)*(M_PI/180.0);
@@ -98,4 +98,23 @@ void load_coordinates(coordinates cabs[])
     }
     f.close();
 
+}
+
+std::vector<coordinates> closest5Cabs(const coordinates cabs[],const coordinates myLocation)
+{
+    std::vector<coordinates> distance;
+    double prev_min = 0;
+    for(int i = 0; i<5; i++){
+        double min = 1000000000;
+        coordinates temp;
+        for(int j = 0; j<COORDINATE_LIMIT; j++){
+            if(myLocation.distance(cabs[j]) < min && myLocation.distance(cabs[j]) > prev_min){
+                min = myLocation.distance(cabs[j]);
+                temp = cabs[j];
+            }
+        }
+        prev_min = min;
+        distance.push_back(temp);
+    }
+    return distance;
 }
