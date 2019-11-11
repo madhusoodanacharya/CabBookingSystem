@@ -23,13 +23,34 @@ void coordinates::random_coordinates()
 {
     const double my_latitudes[5] = {33.74854485, 32.3217, 40.479457, 28.65629508, 25.7886437};
     const double my_longitudes[5] = {-117.5419695, -110.819687, -74.26939, -81.24822669, -80.21450739};
+    const std::string my_address[5] = {"Orange Unified School District, CA, USA",
+                                        "Pima County, AZ, USA",
+                                        "Keenan Way, South Amboy, NJ 08879, USA"
+                                        "Needlewood Loop, FL 32765, USA"
+                                        "1475 NW 12th Ave, Miami, FL 33136, USA"};
     srand(time(0));
     int random = rand()%5;
     latitude = my_latitudes[random];
     longitude = my_longitudes[random];
+    address = my_address[random];
 }
 
 void coordinates::print_coordinates()
 {
-    std::cout<<latitude<<", "<<longitude<<"\n";
+    std::cout<<latitude<<", "<<longitude<<" ("<<address<<")"<<"\n";
+}
+
+std::string coordinates::get_address()
+{
+    return address;
+}
+
+double coordinates::get_latitude()
+{
+    return latitude;
+}
+
+double coordinates::get_longitude()
+{
+    return longitude;
 }
