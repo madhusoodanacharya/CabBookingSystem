@@ -12,3 +12,4 @@ for i in lines:
 l = {float(i[1]) for i in coordinates}
 print(min(l))
 print(max(l))
+

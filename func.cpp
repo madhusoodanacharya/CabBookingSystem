@@ -21,24 +21,12 @@ double coordinates::distance(coordinates other)
 
 void coordinates::random_coordinates()
 {
-    //latitude and longitude ranges to be in America
-    const double lat_max = 19.6512;
-    const double lat_min = 64.8522227;
-    const double lon_max = -68.74260283;
-    const double lon_min = -159.396274;
-
-    //creating random double values for latitude using STL C++
-    std::uniform_real_distribution<double> unif(lat_min, lat_max);
-    std::default_random_engine ran_lat;
-    double random_latitude = unif(ran_lat);
-    //assigning random value to object value
-    latitude = random_latitude;
-    //creating random double values for longitude using STL C++
-    std::uniform_real_distribution<double> unif1(lon_min, lon_max);
-    std::default_random_engine ran_lon;
-    double random_longitude = unif1(ran_lon);
-    //assigning random value to object value
-    longitude = random_longitude;
+    const double my_latitudes[5] = {33.74854485, 32.3217, 40.479457, 28.65629508, 25.7886437};
+    const double my_longitudes[5] = {-117.5419695, -110.819687, -74.26939, -81.24822669, -80.21450739};
+    srand(time(0));
+    int random = rand()%5;
+    latitude = my_latitudes[random];
+    longitude = my_longitudes[random];
 }
 
 void coordinates::print_coordinates()

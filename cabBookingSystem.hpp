@@ -3,6 +3,7 @@
 #include <string>
 #include <cmath>
 #include <random>
+#include <time.h>
 
 class coordinates{
     double latitude;

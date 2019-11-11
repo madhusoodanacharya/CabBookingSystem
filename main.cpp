@@ -4,8 +4,8 @@
 
 int main(void)
 {
-    coordinates c(51.5007, 0.1246);
-    coordinates o(40.6892, 74.0445);
+    coordinates c(25.8886, -80.1145);
+    coordinates o(25.7886, -80.2145);
     std::cout<<c.distance(o)<<"\n";
     coordinates s;
     s.random_coordinates();
