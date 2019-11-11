@@ -55,21 +55,6 @@ double coordinates::get_longitude()
     return longitude;
 }
 
-void coordinates::put_latitude(double d)
-{
-    latitude = d;
-}
-
-void coordinates::put_longitude(double d)
-{
-    longitude = d;
-}
-
-void coordinates::put_address(std::string s)
-{
-    address = s;
-}
-
 void load_coordinates(coordinates cabs[])
 {
     std::ifstream f;
@@ -92,9 +77,8 @@ void load_coordinates(coordinates cabs[])
                 data[count] = temp;
             }
         }
-        cabs[i].put_latitude(std::stod(data[0]));
-        cabs[i].put_longitude(std::stod(data[1]));
-        cabs[i].put_address(data[2]);
+        coordinates tempCoor(std::stod(data[0]), std::stod(data[1]), data[2]);
+        cabs[i] = tempCoor;
     }
     f.close();
 

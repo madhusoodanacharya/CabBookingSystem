@@ -24,9 +24,6 @@ class coordinates{
         std::string get_address();
         double get_latitude();
         double get_longitude();
-        void put_latitude(double);
-        void put_longitude(double);
-        void put_address(std::string);
 };
 
 void load_coordinates(coordinates []);
