@@ -19,7 +19,7 @@ void printClosestAuto(std::vector<coordinates> dcc,const coordinates myLocation)
 void cabBooked(int i,std::vector<coordinates> dcc,const coordinates myLocation){
 	system("clear");
 	std::cout <<"Your Cab is Booked"<<"\n";
-	std::cout <<"It will arrive in "<<(int)((myLocation.distance(dcc[i])/45)*60)<<" mins.";
+	std::cout <<"It will arrive in "<<(int)((myLocation.distance(dcc[i-1])/45)*60)<<" mins.";
 	std::cout <<"\n______________________________________________________________________________________________________________________\n";	
 	std::cout <<"\nBase Fare                    $2";
 	std::cout <<"\nFare per Km                  $0.5";
@@ -34,7 +34,7 @@ void cabBooked(int i,std::vector<coordinates> dcc,const coordinates myLocation){
 void autoBooked(int i,std::vector<coordinates> dcc,const coordinates myLocation){
 	system("clear");
 	std::cout <<"Your Auto is Booked"<<"\n";
-	std::cout <<"It will arrive in "<<(int)((myLocation.distance(dcc[i])/30)*60)<<" mins.";
+	std::cout <<"It will arrive in "<<(int)((myLocation.distance(dcc[i-1])/30)*60)<<" mins.";
 	std::cout <<"\n______________________________________________________________________________________________________________________\n";
 	std::cout <<"\nBase Fare                    $1";
 	std::cout <<"\nFare per Km                  $0.25";	
