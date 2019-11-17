@@ -4,9 +4,11 @@
 
 int main(void)
 {
-    coordinates myLocation(0,0,"something");
+    coordinates myLocation;
     myLocation.random_coordinates();
     myLocation.print_coordinates();
+
+    std::cout<<"#######"<<std::endl;
 
     coordinates cabs[COORDINATE_LIMIT];
     load_coordinates(cabs);
