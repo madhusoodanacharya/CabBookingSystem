@@ -1,7 +1,5 @@
-#include "backend.hpp"
-#include "frontend.hpp"
-
-// using namespace std;
+#include "HeadBackend.hpp"
+#include "HeadFrontend.hpp"
 
 int main(void)
 {
